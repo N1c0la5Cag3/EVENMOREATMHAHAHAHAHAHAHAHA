@@ -12,9 +12,9 @@ import java.util.Scanner;
  * @author lukas
  */
 public class ATMgui extends javax.swing.JFrame {
-String bankName1;
-double balance1;
-double toBalance1;
+    String bankName1;
+    double balance1;
+    double toBalance1;
 
 
     /**
