@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class ATMgui extends javax.swing.JFrame {
     String bankName1;
-    double balance1;
+    double balance1 = 0;
     double toBalance1;
 
 
@@ -49,6 +49,7 @@ public class ATMgui extends javax.swing.JFrame {
         interestRateInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(670, 388));
 
         bankNameLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         bankNameLabel.setText("Enter bank name:");
@@ -117,9 +118,7 @@ public class ATMgui extends javax.swing.JFrame {
                                             .addGap(4, 4, 4)
                                             .addComponent(withdrawButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent($amountInput))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(inOutMoneyInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(inOutMoneyInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(mainOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +131,7 @@ public class ATMgui extends javax.swing.JFrame {
                                 .addComponent(enterBalanceLabel)
                                 .addComponent(interestRateInput, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                                 .addComponent(interestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(168, 168, 168))))
+                        .addGap(78, 78, 78))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +178,9 @@ public class ATMgui extends javax.swing.JFrame {
         else {                                             
             bankName1 = bankNameInput.getText();        
             toBalance1 = Double.parseDouble($amountInput.getText());
-            ATM THINGYDINGY = new ATM(bankName1, toBalance1);
+            
+            System.out.println("Your balance is: " + (balance1+=toBalance1));
+            //ATM THINGYDINGY = new ATM (bankName1, balance1, toBalance1, true);
         }
         
         //ATM THINGYDINGY = new ATM(bankName1, toBalance1);
@@ -191,6 +192,8 @@ public class ATMgui extends javax.swing.JFrame {
     }//GEN-LAST:event_depositButtonActionPerformed
 
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
+        /*
+        
         bankName1 = bankNameInput.getText();
         toBalance1 = Double.parseDouble($amountInput.getText());
         //toBalance1 = toBalance1 * -1;
@@ -198,6 +201,19 @@ public class ATMgui extends javax.swing.JFrame {
         /*String bankName = bankNameInput.getText();
         double toBalance = Double.parseDouble($amountInput.getText());
         System.out.println("Your balance is now " + (0 - toBalance));*/
+        
+        
+        if (bankNameInput.getText().isEmpty() || $amountInput.getText().isEmpty()) {
+            //Nothing
+        }
+        
+        else {                                             
+            bankName1 = bankNameInput.getText();        
+            toBalance1 = Double.parseDouble($amountInput.getText());
+            
+            System.out.println("Your balance is: " + (balance1-=toBalance1));
+            //ATM THINGYDINGY = new ATM(bankName1, balance1, toBalance1, false);
+        }
     }//GEN-LAST:event_withdrawButtonActionPerformed
 
     private void interestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interestButtonActionPerformed
